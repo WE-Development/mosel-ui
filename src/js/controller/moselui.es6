@@ -1,3 +1,4 @@
+import $ from "jquery"
 import {Controller} from "./controller.es6";
 import {Dashboard} from "./dashboard.es6";
 import {MoselUIContext} from "./context.es6";
@@ -26,7 +27,13 @@ export class MoselUI extends Controller {
             page2: new Controller("view/page2.html")
         };
 
-        this.loadContent('dashboard');
+        var page = $.url('#page');
+
+        if (typeof page === 'undefined') {
+            page = 'dashboard'
+        }
+
+        this.loadContent(page);
     }
 
     loadContent(pageName) {
