@@ -22,7 +22,6 @@ export class MoselUI extends Controller {
 
     loadContent(pageName) {
         if (pageName in this.pages) {
-            console.debug(this.context);
             this.load(
                 this.getChild('#content'), this.pages[pageName]);
         }

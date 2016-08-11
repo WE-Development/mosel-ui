@@ -7,10 +7,6 @@ export class Controller {
         this.context = null;
     }
 
-    init() {
-        console.debug("Init", this)
-    }
-
     load(child, controller) {
         if (!(child instanceof $)) {
             child = $(child);
@@ -34,6 +30,10 @@ export class Controller {
             child.load(controller.view, () => controller.init());
             child.attr('data-container', '');
         });
+    }
+
+    init() {
+        console.debug("Init", this)
     }
 
     destroy() {
