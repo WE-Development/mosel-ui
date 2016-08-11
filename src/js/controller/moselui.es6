@@ -30,7 +30,7 @@ export class MoselUI extends Controller {
         var page = $.url('#page');
 
         if (typeof page === 'undefined') {
-            page = 'dashboard'
+            page = 'dashboard';
         }
 
         this.loadContent(page);
