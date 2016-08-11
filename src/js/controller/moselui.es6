@@ -1,19 +1,20 @@
 import {Controller} from "./controller.es6";
 import {Dashboard} from "./dashboard.es6";
+import {MoselUIContext} from "./context.es6";
 
 export class MoselUI extends Controller {
 
-    constructor(container) {
-        super(container, 'view/moselui.html');
+    constructor() {
+        super('view/moselui.html');
+        super.context = new MoselUIContext();
     }
 
     init() {
         console.log('Init MoselUI');
-        var content = super.getChild('#content');
 
         this.pages = {
-            dashboard: new Dashboard(content),
-            page2: new Controller(content, "view/page2.html")
+            dashboard: new Dashboard(),
+            page2: new Controller("view/page2.html")
         };
 
         this.loadContent('dashboard');
@@ -21,7 +22,8 @@ export class MoselUI extends Controller {
 
     loadContent(pageName) {
         if (pageName in this.pages) {
-            this.pages[pageName].load();
+            this.load(
+                this.getChild('#content'), this.pages[pageName]);
         }
     }
 

@@ -2,8 +2,8 @@ import {Controller} from "./controller.es6";
 
 export class Dashboard extends Controller {
 
-    constructor(container) {
-        super(container, "view/dashboard.html");
+    constructor() {
+        super("view/dashboard.html");
     }
 
     init() {
