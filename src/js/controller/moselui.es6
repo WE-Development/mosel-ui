@@ -15,7 +15,7 @@ export class MoselUI extends Controller {
         console.log('Init MoselUI');
         var context = new MoselUIContext();
 
-        if (context.debug){
+        if (context.debug) {
             context.nodeInfoDao = new NodeInfoDaoMock();
         } else {
             context.nodeInfoDao = new NodeInfoDao();
@@ -27,16 +27,21 @@ export class MoselUI extends Controller {
             page2: new Controller("view/page2.html")
         };
 
-        var page = $.url('#page');
-
-        if (typeof page === 'undefined') {
-            page = 'dashboard';
+        var pageName = null;
+        if (typeof window.location.hash === 'undefined' ||
+            window.location.hash === '') {
+            pageName = 'dashboard';
+        } else {
+            pageName = window.location.hash
+                .replace('#', '');
         }
 
-        this.loadContent(page);
+        this.loadContent(pageName);
     }
 
     loadContent(pageName) {
+        window.location.hash = pageName;
+
         if (pageName in this.pages) {
             this.load(
                 this.getChild('#content'), this.pages[pageName]);
