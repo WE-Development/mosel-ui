@@ -1,5 +1,5 @@
 import {Controller} from "./controller.es6";
-import {MoselUIContext} from "./context.es6"
+import {MoselUIContext} from "./context.es6";
 
 export class Dashboard extends Controller {
 
@@ -9,6 +9,65 @@ export class Dashboard extends Controller {
 
     init() {
         console.log("Dashboard init - Context " + (this.context instanceof MoselUIContext), this.context);
+
+        var nodeInfo = this.context.nodeInfoDao;
+        nodeInfo.get({
+            done: (data) => this.renderNodes(data)
+        });
+
+    }
+
+    destroy() {
+        console.log("Dashboard destroy");
+    }
+
+    renderNodes(data) {
+        var nodesContainer = this.getChild('#nodes');
+
+        for (let entry of data.Nodes) {
+            var name = entry[0];
+            var info = entry[1];
+
+            nodesContainer.append('<h3>' + name + '</h3>');
+
+            var infoContainer = $('<div></div>');
+            infoContainer.appendTo(nodesContainer);
+
+            this.load(infoContainer, new NodeCharts(info));
+        }
+
+        nodesContainer.accordion({
+            active: 0,
+            heightStyle: 'content'
+        });
+    }
+}
+
+class NodeCharts extends Controller {
+
+    constructor(info) {
+        super('view/nodeCharts.html');
+        this.info = info;
+    }
+
+    init() {
+        var content = this.getChild('#charts');
+
+        //TestChart
+        var testChart = new NodeChart();
+        var testChartContainer = $('<div></div>');
+        testChartContainer.appendTo(content);
+        this.load(testChartContainer, testChart);
+    }
+}
+
+class NodeChart extends Controller {
+
+    constructor() {
+        super('view/nodeChart.html')
+    }
+
+    init() {
         super.getChild("#chart")
             .highcharts({
                 chart: {
@@ -34,9 +93,4 @@ export class Dashboard extends Controller {
                 }]
             });
     }
-
-    destroy() {
-        console.log("Dashboard destroy");
-    }
-
 }

@@ -1,7 +1,9 @@
 export class MoselUIContext {
 
     constructor() {
-        this.test = "bla";
+        this.debug = true;
+
+        this.nodeInfoDao = null;
     }
 
 }
