@@ -1,4 +1,3 @@
-import $ from "jquery";
 import {Controller} from "./controller.es6";
 import {Dashboard} from "./dashboard.es6";
 
