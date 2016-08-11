@@ -1,5 +1,3 @@
-import $ from "jquery";
-
 export class Controller {
 
     constructor(container, view) {

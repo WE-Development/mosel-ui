@@ -1,5 +1,5 @@
 import $ from "jquery";
-import {MoselUI} from "./pages/moselui.es6";
+import {MoselUI} from "./controller/moselui.es6";
 
 $(document).ready(function () {
     window.app = new MoselUI($('#moselui'));
