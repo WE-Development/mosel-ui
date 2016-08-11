@@ -4,6 +4,7 @@ export class Controller {
 
     constructor(view) {
         this.view = view;
+        this.context = null;
     }
 
     init() {
@@ -28,6 +29,7 @@ export class Controller {
               controller: controller
             });
             controller.container = child;
+            controller.context = this.context;
 
             child.load(controller.view, () => controller.init());
             child.attr('data-container', '');

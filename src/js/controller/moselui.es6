@@ -6,11 +6,11 @@ export class MoselUI extends Controller {
 
     constructor() {
         super('view/moselui.html');
-        super.context = new MoselUIContext();
     }
 
     init() {
         console.log('Init MoselUI');
+        this.context = new MoselUIContext();
 
         this.pages = {
             dashboard: new Dashboard(),
@@ -22,6 +22,7 @@ export class MoselUI extends Controller {
 
     loadContent(pageName) {
         if (pageName in this.pages) {
+            console.debug(this.context);
             this.load(
                 this.getChild('#content'), this.pages[pageName]);
         }

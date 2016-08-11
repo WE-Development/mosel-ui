@@ -1,4 +1,5 @@
 import {Controller} from "./controller.es6";
+import {MoselUIContext} from "./context.es6"
 
 export class Dashboard extends Controller {
 
@@ -7,7 +8,7 @@ export class Dashboard extends Controller {
     }
 
     init() {
-        console.log("Dashboard init");
+        console.log("Dashboard init - Context " + (this.context instanceof MoselUIContext), this.context);
         super.getChild("#chart")
             .highcharts({
                 chart: {
