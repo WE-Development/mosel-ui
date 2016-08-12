@@ -89,9 +89,6 @@ class NodeChart extends Controller {
                 title: {
                     text: 'Fruit Consumption'
                 },
-                xAxis: {
-                    categories: ['Apples', 'Bananas', 'Oranges']
-                },
                 yAxis: {
                     title: {
                         text: 'Fruit eaten'
