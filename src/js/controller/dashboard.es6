@@ -24,11 +24,20 @@ export class Dashboard extends Controller {
     renderNodes(data) {
         var nodesContainer = this.getChild('#nodes');
 
+        var nodeToShow, i = 0;
         for (let entry of data.Nodes) {
-            var name = entry[0];
-            var info = entry[1];
+            let name = entry[0];
+            let info = entry[1];
 
-            nodesContainer.append('<h3>' + name + '</h3>');
+            if (this.context.queryParams.get('node') == name) {
+                nodeToShow = i;
+            }
+            i++;
+
+            var nodeHeader = $('<h3>' + name + '</h3>');
+            nodeHeader.attr('data-nodeHeader', '');
+            nodeHeader.click(e => this.onClickNode(name));
+            nodeHeader.appendTo(nodesContainer);
 
             var infoContainer = $('<div></div>');
             infoContainer.appendTo(nodesContainer);
@@ -37,9 +46,13 @@ export class Dashboard extends Controller {
         }
 
         nodesContainer.accordion({
-            active: 0,
+            active: nodeToShow,
             heightStyle: 'content'
         });
+    }
+
+    onClickNode(name) {
+        this.context.queryParams.set('node', name);
     }
 }
 
