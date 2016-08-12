@@ -63,7 +63,7 @@ class NodeCharts extends Controller {
 class NodeChart extends Controller {
 
     constructor() {
-        super('view/nodeChart.html')
+        super('view/nodeChart.html');
     }
 
     init() {
