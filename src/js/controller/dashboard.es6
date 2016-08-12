@@ -51,13 +51,12 @@ class NodeCharts extends Controller {
     }
 
     init() {
-        var content = this.getChild('#charts');
-
-        //TestChart
-        var testChart = new NodeChart();
-        var testChartContainer = $('<div></div>');
-        testChartContainer.appendTo(content);
-        this.load(testChartContainer, testChart);
+        this.load(this.getChild('#chart1'), new NodeChart());
+        this.load(this.getChild('#chart2'), new NodeChart());
+        this.load(this.getChild('#chart3'), new NodeChart());
+        this.load(this.getChild('#chart4'), new NodeChart());
+        this.load(this.getChild('#chart5'), new NodeChart());
+        this.load(this.getChild('#chart6'), new NodeChart());
     }
 }
 
