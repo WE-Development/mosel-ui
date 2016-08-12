@@ -1,4 +1,4 @@
-import $ from "jquery"
+import $ from "jquery";
 import {Controller} from "./controller.es6";
 import {Dashboard} from "./dashboard.es6";
 import {MoselUIContext} from "./context.es6";
@@ -37,12 +37,28 @@ export class MoselUI extends Controller {
         }
 
         this.loadContent(pageName);
+
+        //var that = this;
+        var menuItems = this.getChildren('a[data-load-page]');
+        menuItems.click(e => {
+            menuItems.parent().removeClass('active');
+
+            var item = $(e.target);
+            this.loadContent(item.attr('data-load-page'));
+
+            //this is necessary to prevent the browser from setting an empty fragment in the end
+            e.preventDefault();
+        });
     }
 
     loadContent(pageName) {
         window.location.hash = pageName;
+        //window.location.hash = location.hash;
+        //window.location.href = location.hash;
 
         if (pageName in this.pages) {
+            this.getChildren('a[data-load-page="' + pageName + '"]')
+                .parent().addClass('active');
             this.load(
                 this.getChild('#content'), this.pages[pageName]);
         }
