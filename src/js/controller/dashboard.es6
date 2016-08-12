@@ -47,7 +47,8 @@ export class Dashboard extends Controller {
 
         nodesContainer.accordion({
             active: nodeToShow,
-            heightStyle: 'content'
+            heightStyle: 'content',
+            collapsible: true
         });
     }
 
@@ -83,7 +84,7 @@ class NodeChart extends Controller {
         super.getChild("#chart")
             .highcharts({
                 chart: {
-                    type: 'bar'
+                    type: 'line'
                 },
                 title: {
                     text: 'Fruit Consumption'
@@ -98,10 +99,12 @@ class NodeChart extends Controller {
                 },
                 series: [{
                     name: 'Jane',
-                    data: [1, 0, 4]
+                    data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5,
+                        {y: 216.4, marker: { fillColor: '#BF0B23', radius: 10 } }, 194.1, 95.6, 54.4]
                 }, {
                     name: 'John',
-                    data: [5, 7, 3]
+                    data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5,
+                        { y: 190.4, color: '#BF0B23'}, 194.1, 95.6, 54.4]
                 }]
             });
     }
