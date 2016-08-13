@@ -14,16 +14,14 @@ export class Controller {
 
         child.ready(() => {
 
-            var childController = child.data().controller;
+            var childController = child.data('controller');
             if (childController instanceof Controller) {
                 childController.destroy();
                 child.removeAttr('data-container');
             }
 
             //correlate controller and container
-            child.data({
-              controller: controller
-            });
+            child.data('controller', controller);
             controller.container = child;
             controller.context = this.context;
 
