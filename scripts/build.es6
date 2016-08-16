@@ -13,6 +13,7 @@ var jsInclude = [
 var resourceInclude = [
     {
         up: 1,
+        moveTo: '/',
         paths: [
             'src/**/*.html',
             'src/**/*.css'
@@ -20,6 +21,7 @@ var resourceInclude = [
     },
     {
         up: 3,
+        moveTo: '/',
         paths: [
             'node_modules/bootstrap/dist/**/*.min.css',
             'node_modules/bootstrap/dist/**/*.min.css.map',
@@ -28,6 +30,14 @@ var resourceInclude = [
             'node_modules/bootstrap/dist/**/*.ttf',
             'node_modules/bootstrap/dist/**/*.woff',
             'node_modules/bootstrap/dist/**/*.woff2'
+        ]
+    },
+    {
+        up: 4,
+        moveTo: 'css',
+        paths: [
+            'node_modules/jquery-ui-browserify/themes/base/**/*.css',
+            'node_modules/jquery-ui-browserify/themes/base/**/*.png'
         ]
     }
 ];
@@ -53,7 +63,7 @@ mkdir.sync(dist);
 //include resources
 resourceInclude.forEach(function(inc) {
     var toCopy = inc.paths;
-    toCopy.push(dist);
+    toCopy.push(dist + '/' + inc.moveTo);
     cp(toCopy, inc.up,
         function (err, files) {
             if (typeof err != 'undefined') console.error(err);

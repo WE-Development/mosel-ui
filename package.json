@@ -2,9 +2,13 @@
   "name": "moselui",
   "version": "1.0.0",
   "description": "A simple ui for the mosel system",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WE-Development/mosel-ui"
+  },
   "main": "index.js",
   "scripts": {
-    "build": "nodejs scripts/build.es6",
+    "build": "node scripts/build.es6",
     "build-full": "npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,8 +23,13 @@
     "del": "^2.2.1",
     "filepath": "^1.1.0",
     "highcharts": "^4.2.6",
+    "i": "^0.3.5",
     "jquery": "^3.1.0",
+    "jquery-ui": "^1.12.0",
+    "jquery-ui-browserify": "^1.11.0-pre-seelio",
     "mkdirp": "^0.5.1",
+    "npm": "^3.10.5",
+    "query-string": "^4.2.2",
     "uglifyify": "^3.0.2"
   }
 }
