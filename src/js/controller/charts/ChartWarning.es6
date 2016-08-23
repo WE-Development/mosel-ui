@@ -2,8 +2,9 @@ import {Controller} from "../controller.es6";
 
 export class ChartWarning extends Controller {
 
-    constructor() {
+    constructor(info) {
         super('view/charts/defaultChart.html');
+        this.info = info;
     }
 
     init() {
