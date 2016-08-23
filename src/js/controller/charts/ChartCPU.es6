@@ -1,5 +1,4 @@
 import {Controller} from "../controller.es6";
-import Highcharts from "highcharts"
 
 export class ChartCPU extends Controller {
 
@@ -9,35 +8,33 @@ export class ChartCPU extends Controller {
     }
 
     init() {
-        var that = this;
-        var index = super.getChild("#chart")
-            .highcharts({
-                chart: {
-                    type: 'line',
-                    events : {
-                        load: (function () {
-                            that.chartLoad(this);
-                        })
-                    }
-                },
-                title: {
-                    text: 'CPU usage'
-                },
-                yAxis: {
+        var that = this,
+            index = super.getChild("#chart")
+                .highcharts({
+                    chart: {
+                        type: 'line',
+                        events: {
+                            load: (function () {
+                                that.chartLoad(this);
+                            })
+                        }
+                    },
                     title: {
-                        text: 'More is bad'
-                    }
-                },
-                xAxis: {
-                    type: 'datetime'
-                },
-                series: [{
-                    name: 'Usage',
-                    data: this.info.CPU
-                }]
-            }).data('highchartsChart');
-
-        this.chart = Highcharts.charts[index];
+                        text: 'CPU usage'
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'More is bad'
+                        }
+                    },
+                    xAxis: {
+                        type: 'datetime'
+                    },
+                    series: [{
+                        name: 'Usage',
+                        data: this.info.CPU
+                    }]
+                }).data('highchartsChart');
     }
 
     chartLoad(chart) {
