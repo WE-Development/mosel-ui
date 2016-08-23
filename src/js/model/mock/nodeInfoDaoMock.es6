@@ -1,6 +1,6 @@
 import {NodeInfoDao} from "../nodeInfoDao.es6";
 import {Callbacks} from "../jsonDao.es6";
-import perlin from "perlin-noise";
+import Simplex from "perlin-simplex";
 
 export class NodeInfoDaoMock extends NodeInfoDao {
 
@@ -35,17 +35,13 @@ export class NodeInfoDaoMock extends NodeInfoDao {
 
     static getPerlinSeries() {
         var series = [],
-            noise = perlin.generatePerlinNoise(1000, 1, {
-                amplitude: 100,
-                persistence: 0.05,
-                octaveCount: 5
-            });
-
+            simplex = new Simplex(),
+            rnd = Math.random() * 10;
         var date = new Date();
-        for (var i = 0; i < 1000; i++) {
+        for (var i = 0; i < 3000; i++) {
             series.push([
                 date.getTime() + 2 * 1000 * i,
-                noise[i]
+                simplex.noise(rnd + i / 300, 0)
             ]);
         }
 
