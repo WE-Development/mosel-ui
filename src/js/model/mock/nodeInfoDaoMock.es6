@@ -38,7 +38,7 @@ export class NodeInfoDaoMock extends NodeInfoDao {
             simplex = new Simplex(),
             rnd = Math.random() * 10;
         var date = new Date();
-        for (var i = 0; i < 3000; i++) {
+        for (var i = 0; i < 10; i++) {
             series.push([
                 date.getTime() + 2 * 1000 * i,
                 simplex.noise(rnd + i / 300, 0)
