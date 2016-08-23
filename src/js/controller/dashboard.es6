@@ -1,5 +1,9 @@
 import {Controller} from "./controller.es6";
 import {MoselUIContext} from "./context.es6";
+import {ChartCPU} from "./charts/ChartCPU.es6";
+import {ChartRAM} from "./charts/ChartRAM.es6";
+import {ChartWarning} from "./charts/ChartWarning.es6";
+import {ChartDisk} from "./charts/ChartDisk.es6";
 
 export class Dashboard extends Controller {
 
@@ -65,44 +69,9 @@ class NodeCharts extends Controller {
     }
 
     init() {
-        this.load(this.getChild('#chart1'), new NodeChart());
-        this.load(this.getChild('#chart2'), new NodeChart());
-        this.load(this.getChild('#chart3'), new NodeChart());
-        this.load(this.getChild('#chart4'), new NodeChart());
-        this.load(this.getChild('#chart5'), new NodeChart());
-        this.load(this.getChild('#chart6'), new NodeChart());
-    }
-}
-
-class NodeChart extends Controller {
-
-    constructor() {
-        super('view/nodeChart.html');
-    }
-
-    init() {
-        super.getChild("#chart")
-            .highcharts({
-                chart: {
-                    type: 'line'
-                },
-                title: {
-                    text: 'Fruit Consumption'
-                },
-                yAxis: {
-                    title: {
-                        text: 'Fruit eaten'
-                    }
-                },
-                series: [{
-                    name: 'Jane',
-                    data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5,
-                        {y: 216.4, marker: { fillColor: '#BF0B23', radius: 10 } }, 194.1, 95.6, 54.4]
-                }, {
-                    name: 'John',
-                    data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5,
-                        { y: 190.4, color: '#BF0B23'}, 194.1, 95.6, 54.4]
-                }]
-            });
+        this.load(this.getChild('#chart-cpu'), new ChartCPU(this.info));
+        this.load(this.getChild('#chart-ram'), new ChartRAM(this.info));
+        this.load(this.getChild('#chart-warning'), new ChartWarning(this.info));
+        this.load(this.getChild('#chart-disk'), new ChartDisk(this.info));
     }
 }
