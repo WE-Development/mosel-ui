@@ -49,15 +49,19 @@ export class NodeInfoDaoMock extends NodeInfoDao {
         var series = [],
             now = new Date().getTime();
 
+        simplex.i = simplex.i || 0;
+
         if (since == null) {
             since = now - this.defaultSince;
         }
 
         var interval = Math.round(
             moselConfig.defaultSince / moselConfig.maxPoints);
-        //console.debug((now - since), interval);
+
         while (since < now) {
-            var noise = simplex.noise(since / (24 * 60 * 60 * 1000) * 2, 0);
+            var noise = simplex.noise(simplex.i / (5 * Math.pow(10, 5)), 0);
+            simplex.i++;
+
             //noise = Math.abs(noise);
             noise = noise + 1 / 2;
             noise *= 100;
