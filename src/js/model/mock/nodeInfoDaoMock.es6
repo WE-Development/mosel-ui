@@ -7,44 +7,63 @@ export class NodeInfoDaoMock extends NodeInfoDao {
     constructor() {
         super(null);
         this.i = Math.random();
+
+        this.cpuSimplex = new Simplex();
+        this.ramSimplex = new Simplex();
+        this.diskSimplex = new Simplex();
     }
 
     get(callbacks = new Callbacks()) {
+        this.getSince(
+            new Date().getTime() - this.defaultSince,
+            callbacks
+        );
+    }
+
+    getSince(since, callbacks = new Callbacks()) {
         var res = {
             Time: Date.now(),
             Nodes: new Map([
-                ["localhorst", NodeInfoDaoMock.getMockInfoObject()],
-                ["hans", NodeInfoDaoMock.getMockInfoObject()],
-                ["peter", NodeInfoDaoMock.getMockInfoObject()],
-                ["srv0", NodeInfoDaoMock.getMockInfoObject()],
-                ["srv9001", NodeInfoDaoMock.getMockInfoObject()],
-                ["some_weired_host", NodeInfoDaoMock.getMockInfoObject()],
+                ["localhorst", this.getMockInfoObject(since)],
+                ["hans", this.getMockInfoObject(since)],
+                ["peter", this.getMockInfoObject(since)],
+                ["srv0", this.getMockInfoObject(since)],
+                ["srv9001", this.getMockInfoObject(since)],
+                ["some_weired_host", this.getMockInfoObject(since)],
             ])
         };
         callbacks.done(res);
     }
 
-    static getMockInfoObject() {
+    getMockInfoObject(since) {
         return {
             test: Math.round(Math.random() * 10),
-            CPU: this.getPerlinSeries(),
-            RAM: this.getPerlinSeries(),
-            Disk: this.getPerlinSeries()
+            CPU: this.getPerlinSeries(since, this.cpuSimplex),
+            RAM: this.getPerlinSeries(since, this.ramSimplex),
+            Disk: this.getPerlinSeries(since, this.diskSimplex)
         };
     }
 
-    static getPerlinSeries() {
+    getPerlinSeries(since, simplex = new Simplex()) {
         var series = [],
-            simplex = new Simplex(),
-            rnd = Math.random() * 10;
-        var date = new Date();
-        for (var i = 0; i < 10; i++) {
-            series.push([
-                date.getTime() + 2 * 1000 * i,
-                simplex.noise(rnd + i / 300, 0)
-            ]);
+            now = new Date().getTime();
+
+        if (since == null) {
+            since = now - this.defaultSince;
         }
 
-        return series
+        //console.debug(now - since);
+        while (since < now) {
+            series.push([
+                since,
+                simplex.noise(since / (24 * 60 * 60 * 1000) * 2, 0)
+            ]);
+
+            //one measurement every second
+            since += 60 * 1000;
+        }
+
+        //console.debug(series);
+        return series;
     }
 }

@@ -1,6 +1,6 @@
-import {Controller} from "../controller.es6";
+import {LineChart} from "./LineChart.es6";
 
-export class ChartRAM extends Controller {
+export class ChartRAM extends LineChart {
 
     constructor(info) {
         super('view/charts/defaultChart.html');

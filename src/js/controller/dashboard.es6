@@ -9,6 +9,8 @@ export class Dashboard extends Controller {
 
     constructor() {
         super("view/dashboard.html");
+        this.lastRequest = null;
+        this.nodeCharts = [];
     }
 
     init() {
@@ -16,8 +18,20 @@ export class Dashboard extends Controller {
 
         var nodeInfo = this.context.nodeInfoDao;
         nodeInfo.get({
-            done: (data) => this.renderNodes(data)
+            done: data => {
+                this.renderNodes(data);
+                this.lastRequest = new Date().getTime();
+            }
         });
+
+        //setTimeout(() => {
+        setInterval(() => {
+            //console.debug('Interval');
+            nodeInfo.getSince(this.lastRequest, {
+                done: data => this.updateNodes(data)
+            });
+            this.lastRequest = new Date().getTime();
+        }, 1000);
 
     }
 
@@ -46,13 +60,27 @@ export class Dashboard extends Controller {
             var infoContainer = $('<div></div>');
             infoContainer.appendTo(nodesContainer);
 
-            this.load(infoContainer, new NodeCharts(info));
+            var nodeChart = new NodeCharts(name, info);
+            this.nodeCharts.push(nodeChart);
+            this.load(infoContainer, nodeChart);
         }
 
         nodesContainer.accordion({
             active: nodeToShow,
             heightStyle: 'content',
             collapsible: true
+        });
+    }
+
+    updateNodes(data) {
+        if (this.nodeCharts == null) {
+            return;
+        }
+
+        this.nodeCharts.forEach(nodeController => {
+            nodeController.charts.forEach(chartController => {
+                chartController.addNewInfo(data.Nodes.get(nodeController.name));
+            })
         });
     }
 
@@ -63,15 +91,28 @@ export class Dashboard extends Controller {
 
 class NodeCharts extends Controller {
 
-    constructor(info) {
+    constructor(name, info) {
         super('view/nodeCharts.html');
+        this.name = name;
         this.info = info;
+        this.charts = [];
     }
 
     init() {
-        this.load(this.getChild('#chart-cpu'), new ChartCPU(this.info));
-        this.load(this.getChild('#chart-ram'), new ChartRAM(this.info));
-        this.load(this.getChild('#chart-warning'), new ChartWarning(this.info));
-        this.load(this.getChild('#chart-disk'), new ChartDisk(this.info));
+        var chart = new ChartCPU(this.info);
+        this.charts.push(chart);
+        this.load(this.getChild('#chart-cpu'), chart);
+
+        chart = new ChartRAM(this.info);
+        this.charts.push(chart);
+        this.load(this.getChild('#chart-ram'), chart);
+
+        chart = new ChartWarning(this.info);
+        this.charts.push(chart);
+        this.load(this.getChild('#chart-warning'), chart);
+
+        chart = new ChartDisk(this.info);
+        this.charts.push(chart);
+        this.load(this.getChild('#chart-disk'), chart);
     }
 }

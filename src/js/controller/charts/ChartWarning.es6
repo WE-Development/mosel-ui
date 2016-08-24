@@ -1,6 +1,6 @@
-import {Controller} from "../controller.es6";
+import {AbstractChart} from "./AbstractChart.es6";
 
-export class ChartWarning extends Controller {
+export class ChartWarning extends AbstractChart {
 
     constructor(info) {
         super('view/charts/defaultChart.html');

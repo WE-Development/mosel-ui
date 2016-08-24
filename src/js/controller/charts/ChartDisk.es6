@@ -1,6 +1,6 @@
-import {Controller} from "../controller.es6";
+import {LineChart} from "./LineChart.es6";
 
-export class ChartDisk extends Controller {
+export class ChartDisk extends LineChart {
 
     constructor(info) {
         super('view/charts/defaultChart.html');
