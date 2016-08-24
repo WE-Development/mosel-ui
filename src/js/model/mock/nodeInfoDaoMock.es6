@@ -57,6 +57,8 @@ export class NodeInfoDaoMock extends NodeInfoDao {
             //noise = Math.abs(noise);
             noise = noise + 1 / 2;
             noise *= 100;
+            noise = Math.min(noise, 100);
+            noise = Math.max(noise, 0);
             series.push([since, noise]);
 
             //interval of measurements

@@ -25,7 +25,9 @@ export class LineChart extends AbstractChart {
                         yAxis: {
                             title: {
                                 text: 'More is bad'
-                            }
+                            },
+                            ceiling: 100,
+                            floor: 0
                         },
                         xAxis: {
                             type: 'datetime'
