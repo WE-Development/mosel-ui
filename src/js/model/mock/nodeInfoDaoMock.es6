@@ -52,7 +52,6 @@ export class NodeInfoDaoMock extends NodeInfoDao {
             since = now - this.defaultSince;
         }
 
-        //console.debug(now - since);
         while (since < now) {
             series.push([
                 since,
@@ -63,7 +62,6 @@ export class NodeInfoDaoMock extends NodeInfoDao {
             since += 60 * 1000;
         }
 
-        //console.debug(series);
         return series;
     }
 }

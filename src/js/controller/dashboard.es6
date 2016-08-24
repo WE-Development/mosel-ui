@@ -24,9 +24,7 @@ export class Dashboard extends Controller {
             }
         });
 
-        //setTimeout(() => {
         setInterval(() => {
-            //console.debug('Interval');
             nodeInfo.getSince(this.lastRequest, {
                 done: data => this.updateNodes(data)
             });
