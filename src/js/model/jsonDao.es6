@@ -3,8 +3,6 @@ export class JsonDao {
     constructor(path, callbacks = new Callbacks()) {
         this.path = path;
         this.callbacks = callbacks;
-        this.defaultSince = 24 * 60 * 60 * 1000;
-        //this.defaultSince = 60 * 60 * 1000;
     }
 
     get(callbacks = null) {

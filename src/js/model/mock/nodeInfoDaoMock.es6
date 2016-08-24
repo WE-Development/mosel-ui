@@ -1,6 +1,7 @@
 import {NodeInfoDao} from "../nodeInfoDao.es6";
 import {Callbacks} from "../jsonDao.es6";
 import Simplex from "perlin-simplex";
+import {moselConfig} from "../../environment.es6";
 
 export class NodeInfoDaoMock extends NodeInfoDao {
 
@@ -15,7 +16,7 @@ export class NodeInfoDaoMock extends NodeInfoDao {
 
     get(callbacks = new Callbacks()) {
         this.getSince(
-            new Date().getTime() - this.defaultSince,
+            new Date().getTime() - moselConfig.defaultSince,
             callbacks
         );
     }
@@ -52,6 +53,9 @@ export class NodeInfoDaoMock extends NodeInfoDao {
             since = now - this.defaultSince;
         }
 
+        var interval = Math.round(
+            moselConfig.defaultSince / moselConfig.maxPoints);
+        //console.debug((now - since), interval);
         while (since < now) {
             var noise = simplex.noise(since / (24 * 60 * 60 * 1000) * 2, 0);
             //noise = Math.abs(noise);
@@ -63,9 +67,10 @@ export class NodeInfoDaoMock extends NodeInfoDao {
 
             //interval of measurements
             //since += 60 * 1000;
-            since += 60 * 1000;
+            since += interval;
         }
 
+        //console.debug(series.length);
         return series;
     }
 }

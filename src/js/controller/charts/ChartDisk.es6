@@ -4,8 +4,7 @@ import * as $ from "jquery";
 export class ChartDisk extends LineChart {
 
     constructor(info) {
-        super('view/charts/defaultChart.html');
-        this.info = info;
+        super(info);
     }
 
     buildOptions(options) {
@@ -27,6 +26,7 @@ export class ChartDisk extends LineChart {
 
         info.Disk.forEach(data => {
             this.chart.series[0].addPoint(data);
+            this.chart.series[0].removePoint(0);
         });
     }
 }

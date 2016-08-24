@@ -26,6 +26,7 @@ export class ChartCPU extends LineChart {
 
         info.CPU.forEach(data => {
             this.chart.series[0].addPoint(data);
+            this.chart.series[0].removePoint(0);
         });
     }
 }

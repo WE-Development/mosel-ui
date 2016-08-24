@@ -4,6 +4,7 @@ import {ChartCPU} from "./charts/ChartCPU.es6";
 import {ChartRAM} from "./charts/ChartRAM.es6";
 import {ChartWarning} from "./charts/ChartWarning.es6";
 import {ChartDisk} from "./charts/ChartDisk.es6";
+import {moselConfig} from "../environment.es6";
 
 export class Dashboard extends Controller {
 
@@ -29,7 +30,7 @@ export class Dashboard extends Controller {
                 done: data => this.updateNodes(data)
             });
             this.lastRequest = new Date().getTime();
-        }, 10000);
+        }, moselConfig.updateInterval);
 
     }
 
