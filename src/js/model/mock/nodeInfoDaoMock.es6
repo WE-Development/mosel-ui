@@ -53,10 +53,10 @@ export class NodeInfoDaoMock extends NodeInfoDao {
         }
 
         while (since < now) {
-            series.push([
-                since,
-                simplex.noise(since / (24 * 60 * 60 * 1000) * 2, 0)
-            ]);
+            var noise = simplex.noise(since / (24 * 60 * 60 * 1000) * 2, 0);
+            noise = Math.abs(noise);
+            noise *= 100;
+            series.push([since, noise]);
 
             //one measurement every second
             since += 60 * 1000;

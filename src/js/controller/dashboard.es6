@@ -29,7 +29,7 @@ export class Dashboard extends Controller {
                 done: data => this.updateNodes(data)
             });
             this.lastRequest = new Date().getTime();
-        }, 1000);
+        }, 10000);
 
     }
 

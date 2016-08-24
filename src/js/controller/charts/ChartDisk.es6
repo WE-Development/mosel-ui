@@ -1,4 +1,5 @@
 import {LineChart} from "./LineChart.es6";
+import * as $ from "jquery";
 
 export class ChartDisk extends LineChart {
 
@@ -7,27 +8,25 @@ export class ChartDisk extends LineChart {
         this.info = info;
     }
 
-    init() {
-        super.getChild("#chart")
-            .highcharts({
-                chart: {
-                    type: 'line'
-                },
-                title: {
-                    text: 'Disk usage'
-                },
-                yAxis: {
-                    title: {
-                        text: 'More is bad'
-                    }
-                },
-                xAxis: {
-                    type: 'datetime'
-                },
-                series: [{
-                    name: 'Usage',
-                    data: this.info.Disk
-                }]
-            });
+    buildOptions(options) {
+        return $.extend(options, {
+            title: {
+                text: 'Disk usage'
+            },
+            series: [{
+                name: 'Usage',
+                data: this.info.Disk
+            }]
+        });
+    }
+
+    addNewInfo(info) {
+        if (this.chart == null) {
+            return;
+        }
+
+        info.Disk.forEach(data => {
+            this.chart.series[0].addPoint(data);
+        });
     }
 }

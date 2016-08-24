@@ -1,4 +1,5 @@
 import {LineChart} from "./LineChart.es6";
+import * as $ from "jquery";
 
 export class ChartRAM extends LineChart {
 
@@ -7,27 +8,25 @@ export class ChartRAM extends LineChart {
         this.info = info;
     }
 
-    init() {
-        super.getChild("#chart")
-            .highcharts({
-                chart: {
-                    type: 'line'
-                },
-                title: {
-                    text: 'RAM usage'
-                },
-                yAxis: {
-                    title: {
-                        text: 'More is bad'
-                    }
-                },
-                xAxis: {
-                    type: 'datetime'
-                },
-                series: [{
-                    name: 'Usage',
-                    data: this.info.RAM
-                }]
-            });
+    buildOptions(options) {
+        return $.extend(options, {
+            title: {
+                text: 'RAM usage'
+            },
+            series: [{
+                name: 'Usage',
+                data: this.info.RAM
+            }]
+        });
+    }
+
+    addNewInfo(info) {
+        if (this.chart == null) {
+            return;
+        }
+
+        info.RAM.forEach(data => {
+            this.chart.series[0].addPoint(data);
+        });
     }
 }
