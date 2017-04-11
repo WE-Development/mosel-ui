@@ -1,8 +1,10 @@
 <md-toolbar color="primary">
-  <span>{{title}}</span>
-
+  <button md-button routerLinkActive="/">
+    <md-icon>home</md-icon>
+    {{title}}
+  </button>
   <!-- This fills the remaining space of the current row -->
-  <span class="example-fill-remaining-space"></span>
+  <span class="fill-remaining-space"></span>
 
   <span>Right Aligned Text</span>
 </md-toolbar>

@@ -5,7 +5,7 @@ import {HttpModule} from "@angular/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import {AppComponent} from "./app.component";
-import {MdToolbarModule} from "@angular/material";
+import {MdButtonModule, MdIconModule, MdMenuModule, MdToolbarModule} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -16,7 +16,10 @@ import {MdToolbarModule} from "@angular/material";
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MdToolbarModule
+    MdToolbarModule,
+    MdMenuModule,
+    MdButtonModule,
+    MdIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
