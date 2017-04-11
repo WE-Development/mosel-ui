@@ -1,7 +1,13 @@
 {
   "name": "mosel-ui",
   "version": "0.0.0",
-  "license": "MIT",
+  "author": "Robin Engel",
+  "license": "Apache-2.0",
+  "description": "A simple ui for the mosel system",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bluedevel/mosel-ui"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
