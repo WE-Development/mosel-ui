@@ -11,13 +11,15 @@ import {appRoutes} from "./appRoutes";
 import {NodesComponent} from "./nodes/nodes.component";
 import { NodeDetailComponent } from './node-detail/node-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NodesComponent,
     NodeDetailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
