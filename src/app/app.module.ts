@@ -5,14 +5,17 @@ import {HttpModule} from "@angular/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import {AppComponent} from "./app.component";
-import {MdButtonModule, MdIconModule, MdMenuModule, MdToolbarModule} from "@angular/material";
+import {
+  MdButtonModule, MdCardModule, MdIconModule, MdInputModule, MdMenuModule,
+  MdToolbarModule
+} from "@angular/material";
 import {RouterModule} from "@angular/router";
 import {appRoutes} from "./appRoutes";
 import {NodesComponent} from "./nodes/nodes.component";
-import { NodeDetailComponent } from './node-detail/node-detail.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { LoginComponent } from './login/login.component';
+import {NodeDetailComponent} from "./node-detail/node-detail.component";
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {NavbarComponent} from "./navbar/navbar.component";
+import {LoginComponent} from "./login/login.component";
 
 @NgModule({
   declarations: [
@@ -28,10 +31,13 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
+
     MdToolbarModule,
     MdMenuModule,
     MdButtonModule,
     MdIconModule,
+    MdCardModule,
+    MdInputModule,
 
     RouterModule.forRoot(appRoutes)
   ],
