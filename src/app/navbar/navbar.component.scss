@@ -2,6 +2,7 @@ nav {
 
   .main-nav-logo {
     line-height: 15px;
+    min-width: 220px;
   }
 
   .main-nav-button {
@@ -18,9 +19,13 @@ nav {
 
   ul {
     list-style-type: none;
+    width: 100%;
 
-    li {
+    .l-left {
       float: left;
+    }
+    .l-right {
+      float: right;
     }
   }
 }

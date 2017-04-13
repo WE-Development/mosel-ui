@@ -12,6 +12,7 @@ import {NodesComponent} from "./nodes/nodes.component";
 import { NodeDetailComponent } from './node-detail/node-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     NodesComponent,
     NodeDetailComponent,
     PageNotFoundComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
