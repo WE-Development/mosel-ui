@@ -20,9 +20,12 @@ export class LoginService {
     headers.append("Authorization", "Basic " + creds);
 
     let options: RequestOptionsArgs = {
-      headers: headers,
-      withCredentials: true
+      headers: headers
     };
+
+    if (environment.production) {
+      options.withCredentials = true
+    }
 
     console.log(options);
 
