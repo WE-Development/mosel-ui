@@ -24,7 +24,7 @@ export class LoginService {
     };
 
     if (environment.production) {
-      options.withCredentials = true
+      options.withCredentials = true;
     }
 
     console.log(options);
