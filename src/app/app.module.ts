@@ -6,7 +6,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import {AppComponent} from "./app.component";
 import {
-  MdButtonModule, MdCardModule, MdIconModule, MdInputModule, MdMenuModule,
+  MdButtonModule,
+  MdCardModule,
+  MdIconModule,
+  MdInputModule,
+  MdMenuModule,
+  MdSnackBarModule,
   MdToolbarModule
 } from "@angular/material";
 import {RouterModule} from "@angular/router";
@@ -38,6 +43,7 @@ import {LoginComponent} from "./login/login.component";
     MdIconModule,
     MdCardModule,
     MdInputModule,
+    MdSnackBarModule,
 
     RouterModule.forRoot(appRoutes)
   ],

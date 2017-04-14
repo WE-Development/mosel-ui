@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  appName: "MoselUI-DEV"
+  appName: "MoselUI-DEV",
+  baseUrl: "http://localhost:8282"
 };

@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  appName: "MoselUI"
+  appName: "MoselUI",
+  baseUrl: ""
 };
