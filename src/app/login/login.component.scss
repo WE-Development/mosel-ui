@@ -1,8 +1,10 @@
-md-card {
-  max-width: 600px;
-  margin-top: 50px;
+div {
+  width: 100%;
 
-  input {
-    width: 300px;
+  md-card {
+    width: 20%;
+    min-width: 300px;
+    margin: 100px auto 0;
   }
+
 }
