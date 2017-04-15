@@ -27,8 +27,6 @@ export class LoginService {
       options.withCredentials = true;
     }
 
-    console.log(options);
-
     return this.http
       .get(this.loginUrl, options)
       .map(HttpUtils.extractData);

@@ -22,15 +22,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onTest() {
-    this.snackBar.open("Hallo Welt", "OK", {
-      duration: 5000,
-      politeness: "assertive"
-    });
-  }
-
   onClickLogin() {
-    console.log(this.username + " " + this.password);
     this.loginService.login(this.username, this.password)
       .subscribe(
         this.onLogin,
@@ -39,13 +31,13 @@ export class LoginComponent implements OnInit {
   }
 
   private onLogin = (login: LoginResponse) => {
-    this.snackBar.open("Login successful");
+    this.snackBar.open("Login successful", "Ok", {duration: 2000});
     this.location.back();
   };
 
   private onError = (res: Response | any) => {
     if (res instanceof Response && res.status == 401) {
-      this.snackBar.open("Invalid credentials");
+      this.snackBar.open("Invalid credentials", "Ok", {duration: 6000});
     } else {
       this.snackBar.open(res.toString());
     }
