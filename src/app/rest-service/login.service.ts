@@ -3,7 +3,6 @@ import {Headers, Http, RequestOptionsArgs} from "@angular/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
 import {HttpUtils} from "../http-utils";
-import {InfoResponse} from "./info-response";
 import {LoginResponse} from "./login-response";
 
 @Injectable()

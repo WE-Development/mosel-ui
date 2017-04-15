@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
 
     try {
       login = res.json();
-    } catch (e){
+    } catch (e) {
       login = new LoginResponse();
       login.successful = false;
     }
