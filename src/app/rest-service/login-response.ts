@@ -1,4 +1,4 @@
-import {MoselResponse} from "../mosel-response";
+import {MoselResponse} from "./mosel-response";
 
 export class LoginResponse extends MoselResponse {
   successful: boolean;

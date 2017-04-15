@@ -4,7 +4,7 @@ import {LoginService} from "../rest-service/login.service";
 import {LoginResponse} from "../rest-service/login-response";
 import {MdSnackBar} from "@angular/material";
 import {Response} from "@angular/http";
-import {Credentials, SessionCache} from "../service/session-cache";
+import {Credentials, SessionCache} from "../service/session-cache.service";
 
 @Component({
   selector: 'app-login',

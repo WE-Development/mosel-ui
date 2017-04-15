@@ -2,8 +2,8 @@ import {Injectable} from "@angular/core";
 import {Headers, Http, RequestOptionsArgs} from "@angular/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
-import {LoginResponse} from "./login-response";
 import {HttpUtils} from "../http-utils";
+import {InfoResponse} from "./info-response";
 
 @Injectable()
 export class LoginService {
@@ -13,7 +13,7 @@ export class LoginService {
   constructor(private http: Http) {
   }
 
-  login(username: String, password: String): Observable<LoginResponse> {
+  login(username: String, password: String): Observable<InfoResponse> {
     const headers: Headers = new Headers();
 
     const creds = btoa(username + ":" + password);
