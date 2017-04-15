@@ -8,6 +8,13 @@ export class SessionCache {
 
   private state: LoginResponse | Credentials;
 
+  constructor() {
+    this.state = {
+      username: "",
+      password: ""
+    }
+  }
+
   save(response: LoginResponse | Credentials) {
     this.state = response;
   }
