@@ -4,11 +4,11 @@
 
     <md-card-content>
       <md-input-container>
-        <input [(ngModel)]="username" mdInput type="text" placeholder="User">
+        <input [(ngModel)]="creds.username" mdInput type="text" placeholder="User">
       </md-input-container>
       <br>
       <md-input-container>
-        <input [(ngModel)]="password" mdInput (value)="password" type="password" placeholder="password">
+        <input [(ngModel)]="creds.password" mdInput type="password" placeholder="password">
       </md-input-container>
     </md-card-content>
 

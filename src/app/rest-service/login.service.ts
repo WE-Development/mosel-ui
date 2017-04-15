@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {Headers, Http, RequestOptionsArgs} from "@angular/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
-import {LoginResponse} from "app/login/login-response";
+import {LoginResponse} from "./login-response";
 import {HttpUtils} from "../http-utils";
 
 @Injectable()
@@ -14,9 +14,9 @@ export class LoginService {
   }
 
   login(username: String, password: String): Observable<LoginResponse> {
-    let headers: Headers = new Headers();
+    const headers: Headers = new Headers();
 
-    let creds = btoa(username + ":" + password);
+    const creds = btoa(username + ":" + password);
     headers.append("Authorization", "Basic " + creds);
 
     let options: RequestOptionsArgs = {
