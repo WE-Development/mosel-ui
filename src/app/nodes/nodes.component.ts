@@ -10,7 +10,7 @@ import {SessionCache} from "../service/session-cache.service";
   selector: 'app-nodes',
   templateUrl: './nodes.component.html',
   styleUrls: ['./nodes.component.css'],
-  providers: [InfoService, SessionCache]
+  providers: [InfoService]
 })
 export class NodesComponent implements OnInit {
 

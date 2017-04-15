@@ -15,8 +15,8 @@ export class SessionCache {
     }
   }
 
-  save(response: LoginResponse | Credentials) {
-    this.state = response;
+  save(newState: LoginResponse | Credentials) {
+    this.state = newState;
   }
 
   appendAuthHeader(headers: Headers) {

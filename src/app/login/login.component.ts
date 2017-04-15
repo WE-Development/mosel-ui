@@ -10,7 +10,7 @@ import {Credentials, SessionCache} from "../service/session-cache.service";
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  providers: [LoginService, SessionCache]
+  providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
 
