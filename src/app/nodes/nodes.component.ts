@@ -4,7 +4,6 @@ import {Response} from "@angular/http";
 import {InfoService} from "../rest-service/info.service";
 import {InfoResponse} from "../rest-service/info-response";
 import {MdSnackBar} from "@angular/material";
-import {SessionCache} from "../service/session-cache.service";
 
 @Component({
   selector: 'app-nodes',
