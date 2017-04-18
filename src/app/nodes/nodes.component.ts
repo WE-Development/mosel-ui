@@ -1,9 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
-import {Response} from "@angular/http";
 import {InfoService} from "../rest-service/info.service";
 import {InfoResponse} from "../rest-service/info-response";
 import {MdSnackBar} from "@angular/material";
+import {HttpUtils} from "../http-utils";
 
 @Component({
   selector: 'app-nodes',
@@ -15,7 +15,8 @@ export class NodesComponent implements OnInit {
 
   constructor(private router: Router,
               private infoService: InfoService,
-              private snackBar: MdSnackBar) {
+              private snackBar: MdSnackBar,
+              private httpUtils: HttpUtils) {
   }
 
   nodes: string[];
@@ -24,25 +25,11 @@ export class NodesComponent implements OnInit {
     this.infoService.info()
       .subscribe(
         this.onSuccess,
-        this.onError
+        this.httpUtils.handleError
       );
   }
 
-  private onSuccess = (login: InfoResponse) => {
-    this.nodes = login.nodes;
+  private onSuccess = (info: InfoResponse) => {
+    this.nodes = info.nodes;
   };
-
-  private onError = (res: Response | any) => {
-    if (!(res instanceof Response)) {
-      this.snackBar.open(res.toString(), "Ok", {duration: 6000});
-      return;
-    }
-
-    if (res.status == 401) {
-      this.router.navigate(["/login"]);
-      return;
-    }
-
-    this.snackBar.open(res.statusText, "Ok", {duration: 6000});
-  }
 }

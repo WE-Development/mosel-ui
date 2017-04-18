@@ -1,26 +1,32 @@
-import {Observable} from "rxjs";
 import {Response} from "@angular/http";
+import {Injectable} from "@angular/core";
+import {Router} from "@angular/router";
+import {MdSnackBar} from "@angular/material";
 
+@Injectable()
 export class HttpUtils {
+
+  constructor(private router: Router,
+              private snackBar: MdSnackBar) {
+  }
 
   static extractData(res: Response) {
     let body = res.json();
     return body || {};
   }
 
-  static handleError(res: Response | any) {
-    let errMsg: string;
-
-    if (res instanceof Response) {
-      const body = res.json() || '';
-      const err = body.error || JSON.stringify(body);
-      errMsg = `${res.status} - ${res.statusText || ''} ${err}`;
-    } else {
-      errMsg = res.message ? res.message : res.toString();
+  handleError(res: Response | any) {
+    if (!(res instanceof Response)) {
+      this.snackBar.open(res.toString(), "Ok", {duration: 6000});
+      return;
     }
 
-    console.error(errMsg);
-    return Observable.throw(errMsg);
+    if (res.status == 401) {
+      this.router.navigate(["/login"]);
+      return;
+    }
+
+    this.snackBar.open(res.statusText, "Ok", {duration: 6000});
   }
 
 }
