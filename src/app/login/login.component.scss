@@ -1,7 +1,18 @@
 md-card {
-  //flex: 1 1 auto;
   margin: auto;
 
   width: 500px;
-  //height: 400px;
+
+  md-card-content {
+    display: flex;
+
+    div {
+      flex-grow: 1;
+      flex-shrink: 1;
+
+      md-icon {
+        font-size: 100px;
+      }
+    }
+  }
 }
