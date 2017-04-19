@@ -6,7 +6,7 @@ import {HttpUtils} from "../http-utils";
 @Component({
   selector: 'app-nodes',
   templateUrl: './nodes.component.html',
-  styleUrls: ['./nodes.component.css'],
+  styleUrls: ['./nodes.component.scss'],
   providers: [InfoService]
 })
 export class NodesComponent implements OnInit {

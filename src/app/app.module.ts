@@ -9,8 +9,8 @@ import {
   MdButtonModule,
   MdCardModule,
   MdIconModule,
-  MdInputModule,
-  MdMenuModule,
+  MdInputModule, MdListModule,
+  MdMenuModule, MdSidenavModule,
   MdSnackBarModule,
   MdToolbarModule
 } from "@angular/material";
@@ -44,6 +44,8 @@ import {LoginComponent} from "./login/login.component";
     MdCardModule,
     MdInputModule,
     MdSnackBarModule,
+    MdSidenavModule,
+    MdListModule,
 
     RouterModule.forRoot(appRoutes)
   ],
