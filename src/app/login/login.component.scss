@@ -1,10 +1,7 @@
-div {
-  width: 100%;
+md-card {
+  //flex: 1 1 auto;
+  margin: auto;
 
-  md-card {
-    width: 20%;
-    min-width: 300px;
-    margin: 100px auto 0;
-  }
-
+  width: 500px;
+  //height: 400px;
 }
