@@ -10,7 +10,13 @@ app-root {
   flex-direction: column;
 }
 
+app-navbar {
+  z-index: 2;
+}
+
 router-outlet + * {
   flex: 1 1 auto;
   display: flex;
+
+  z-index: 1;
 }
