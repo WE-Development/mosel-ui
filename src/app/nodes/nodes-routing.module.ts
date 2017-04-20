@@ -2,16 +2,22 @@ import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {NodesComponent} from "./nodes.component";
 import {NodeDetailComponent} from "./node-detail/node-detail.component";
+import {NodesOverviewComponent} from "./nodes-overview/nodes-overview.component";
 
 
 const nodesRoutes: Routes = [
   {
     path: "nodes",
-    component: NodesComponent
-  },
-  {
-    path: "nodes/:name",
-    component: NodeDetailComponent
+    component: NodesComponent,
+    children: [
+      {
+        path: ":name",
+        component: NodeDetailComponent
+      }, {
+        path: "",
+        component: NodesOverviewComponent
+      }
+    ]
   }
 ];
 

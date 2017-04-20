@@ -7,6 +7,7 @@ import {NodesComponent} from "./nodes.component";
 import {NodeDetailComponent} from "./node-detail/node-detail.component";
 import {NodesRoutingModule} from "./nodes-routing.module";
 import {MdButtonModule, MdListModule, MdSidenavModule} from "@angular/material";
+import { NodesOverviewComponent } from './nodes-overview/nodes-overview.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import {MdButtonModule, MdListModule, MdSidenavModule} from "@angular/material";
   ],
   declarations: [
     NodesComponent,
-    NodeDetailComponent
+    NodeDetailComponent,
+    NodesOverviewComponent
   ]
 })
 export class NodesModule {
