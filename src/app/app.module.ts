@@ -17,11 +17,12 @@ import {
   MdToolbarModule
 } from "@angular/material";
 import {NodesComponent} from "./nodes/nodes.component";
-import {NodeDetailComponent} from "./node-detail/node-detail.component";
+import {NodeDetailComponent} from "./nodes/node-detail/node-detail.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {NavbarComponent} from "./navbar/navbar.component";
 import {LoginComponent} from "./login/login.component";
-import {AppRoutingModule} from "./appRouting.module";
+import {AppRoutingModule} from "./app-routing.module";
+import {NodesRoutingModule} from "./nodes/nodes-routing.module";
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {AppRoutingModule} from "./appRouting.module";
     MdSidenavModule,
     MdListModule,
 
+    NodesRoutingModule,
     AppRoutingModule
   ],
   providers: [],
