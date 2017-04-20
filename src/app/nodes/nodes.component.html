@@ -1,7 +1,9 @@
 <md-sidenav-container>
   <md-sidenav #sidenav>
     <md-list>
-      <md-list-item *ngFor="let node of nodes">{{node}}</md-list-item>
+      <md-list-item *ngFor="let node of nodes">
+        <a md-button (click)="onClickNode(node)">{{node}}</a>
+      </md-list-item>
     </md-list>
   </md-sidenav>
 

@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {InfoService} from "../rest-service/info.service";
 import {InfoResponse} from "../rest-service/info-response";
 import {HttpUtils} from "../http-utils";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nodes',
@@ -12,7 +13,8 @@ import {HttpUtils} from "../http-utils";
 export class NodesComponent implements OnInit {
 
   constructor(private infoService: InfoService,
-              private httpUtils: HttpUtils) {
+              private httpUtils: HttpUtils,
+              private router: Router) {
   }
 
   nodes: string[];
@@ -23,6 +25,11 @@ export class NodesComponent implements OnInit {
         this.onSuccess,
         this.httpUtils.handleError
       );
+  }
+
+  onClickNode(node: string) {
+    console.log("!");
+    this.router.navigate(["/nodes", node]);
   }
 
   private onSuccess = (info: InfoResponse) => {
