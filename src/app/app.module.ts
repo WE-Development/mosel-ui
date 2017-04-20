@@ -9,18 +9,19 @@ import {
   MdButtonModule,
   MdCardModule,
   MdIconModule,
-  MdInputModule, MdListModule,
-  MdMenuModule, MdSidenavModule,
+  MdInputModule,
+  MdListModule,
+  MdMenuModule,
+  MdSidenavModule,
   MdSnackBarModule,
   MdToolbarModule
 } from "@angular/material";
-import {RouterModule} from "@angular/router";
-import {appRoutes} from "./appRoutes";
 import {NodesComponent} from "./nodes/nodes.component";
 import {NodeDetailComponent} from "./node-detail/node-detail.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {NavbarComponent} from "./navbar/navbar.component";
 import {LoginComponent} from "./login/login.component";
+import {AppRoutingModule} from "./appRouting.module";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import {LoginComponent} from "./login/login.component";
     MdSidenavModule,
     MdListModule,
 
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

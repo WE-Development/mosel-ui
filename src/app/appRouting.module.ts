@@ -1,13 +1,11 @@
-import {Routes} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 import {NodesComponent} from "./nodes/nodes.component";
 import {NodeDetailComponent} from "./node-detail/node-detail.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {LoginComponent} from "./login/login.component";
+import {NgModule} from "@angular/core";
 
-/**
- * Created by Robin Engel
- */
-export const appRoutes: Routes = [
+const appRoutes: Routes = [
   {
     path: "login",
     component: LoginComponent
@@ -30,3 +28,14 @@ export const appRoutes: Routes = [
     component: PageNotFoundComponent
   }
 ];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(appRoutes)
+  ],
+  exports: [
+    RouterModule
+  ]
+})
+export class AppRoutingModule {
+}
