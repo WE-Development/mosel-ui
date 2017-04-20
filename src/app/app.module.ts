@@ -10,25 +10,19 @@ import {
   MdCardModule,
   MdIconModule,
   MdInputModule,
-  MdListModule,
   MdMenuModule,
-  MdSidenavModule,
   MdSnackBarModule,
   MdToolbarModule
 } from "@angular/material";
-import {NodesComponent} from "./nodes/nodes.component";
-import {NodeDetailComponent} from "./nodes/node-detail/node-detail.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {NavbarComponent} from "./navbar/navbar.component";
 import {LoginComponent} from "./login/login.component";
 import {AppRoutingModule} from "./app-routing.module";
-import {NodesRoutingModule} from "./nodes/nodes-routing.module";
+import {NodesModule} from "./nodes/nodes.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    NodesComponent,
-    NodeDetailComponent,
     PageNotFoundComponent,
     NavbarComponent,
     LoginComponent
@@ -46,10 +40,8 @@ import {NodesRoutingModule} from "./nodes/nodes-routing.module";
     MdCardModule,
     MdInputModule,
     MdSnackBarModule,
-    MdSidenavModule,
-    MdListModule,
 
-    NodesRoutingModule,
+    NodesModule,
     AppRoutingModule
   ],
   providers: [],
