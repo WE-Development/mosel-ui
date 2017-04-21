@@ -1,15 +1,18 @@
-div {
-  //height: 100%;
+.node-content {
+  flex: 1 1 auto;
 
+  .node-charts {
+    //height: 100%;
+    margin-top: 20px;
 
-  margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
-  chart {
-    //flex-grow: 1;
-    flex-shrink: 1;
+    chart {
+      //flex-grow: 1;
+      flex-shrink: 1;
+    }
   }
+
 }
