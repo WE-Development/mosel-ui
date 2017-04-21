@@ -13,5 +13,9 @@ md-sidenav-container {
 
   .content-wrapper {
     padding-left: 88px;
+
+    app-node-detail {
+      display: block;
+    }
   }
 }

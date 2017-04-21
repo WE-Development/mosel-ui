@@ -1,10 +1,15 @@
 div {
-  border: solid thin black;
+  //height: 100%;
+
+
+  margin-top: 20px;
+
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 
   chart {
-    flex-grow: 1;
-
+    //flex-grow: 1;
+    flex-shrink: 1;
   }
 }
