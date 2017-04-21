@@ -6,7 +6,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {NodesComponent} from "./nodes.component";
 import {NodeDetailComponent} from "./node-detail/node-detail.component";
 import {NodesRoutingModule} from "./nodes-routing.module";
-import {MdButtonModule, MdListModule, MdSidenavModule} from "@angular/material";
+import {MdButtonModule, MdIconModule, MdListModule, MdSidenavModule} from "@angular/material";
 import { NodesOverviewComponent } from './nodes-overview/nodes-overview.component';
 import {ChartModule} from "angular2-highcharts";
 import * as Highcharts from "highcharts";
@@ -21,6 +21,7 @@ import * as Highcharts from "highcharts";
     MdSidenavModule,
     MdListModule,
     MdButtonModule,
+    MdIconModule,
 
     ChartModule.forRoot(Highcharts),
 

@@ -8,8 +8,10 @@
   </md-sidenav>
 
   <button md-button (click)="sidenav.open()">
-    Open sidenav
+    <md-icon color="accent">keyboard_arrow_right</md-icon>
   </button>
 
-  <router-outlet></router-outlet>
+  <div class="content-wrapper">
+    <router-outlet></router-outlet>
+  </div>
 </md-sidenav-container>
