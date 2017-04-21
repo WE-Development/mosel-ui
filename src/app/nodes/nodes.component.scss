@@ -12,12 +12,8 @@ md-sidenav-container {
   }
 
   .content-wrapper {
-    padding-left: 88px;
+    margin-left: 88px;
     height: 100%;
     overflow: scroll;
-
-    app-node-detail {
-      display: block;
-    }
   }
 }
