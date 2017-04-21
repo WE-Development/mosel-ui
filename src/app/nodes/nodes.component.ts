@@ -28,7 +28,6 @@ export class NodesComponent implements OnInit {
   }
 
   onClickNode(node: string) {
-    console.log("!");
     this.router.navigate(["/nodes", node]);
   }
 
