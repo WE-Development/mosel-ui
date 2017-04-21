@@ -8,6 +8,8 @@ import {NodeDetailComponent} from "./node-detail/node-detail.component";
 import {NodesRoutingModule} from "./nodes-routing.module";
 import {MdButtonModule, MdListModule, MdSidenavModule} from "@angular/material";
 import { NodesOverviewComponent } from './nodes-overview/nodes-overview.component';
+import {ChartModule} from "angular2-highcharts";
+import * as Highcharts from "highcharts";
 
 @NgModule({
   imports: [
@@ -19,6 +21,8 @@ import { NodesOverviewComponent } from './nodes-overview/nodes-overview.componen
     MdSidenavModule,
     MdListModule,
     MdButtonModule,
+
+    ChartModule.forRoot(Highcharts),
 
     NodesRoutingModule
   ],

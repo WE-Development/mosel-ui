@@ -1,0 +1,10 @@
+div {
+  border: solid thin black;
+  display: flex;
+  flex-wrap: wrap;
+
+  chart {
+    flex-grow: 1;
+
+  }
+}
