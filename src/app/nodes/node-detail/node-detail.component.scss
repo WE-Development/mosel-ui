@@ -2,6 +2,44 @@
   flex: 1 1 auto;
   display: block;
 
+  md-toolbar {
+    ul {
+      display: inline;
+      list-style-type: none;
+      width: 100%;
+
+      li {
+        margin-right: 30px;
+
+        h4 {
+          margin-top: 30px;
+        }
+
+        .nav-button {
+          line-height: 64px;
+        }
+
+        .btn-update {
+          margin-top: 10px;
+
+          md-icon {
+            font-size: 50px;
+            margin-bottom: 25px;
+            margin-right: 25px;
+          }
+
+        }
+      }
+
+      .l-left {
+        float: left;
+      }
+      .l-right {
+        float: right;
+      }
+    }
+  }
+
   .node-charts {
     //height: 100%;
     margin-top: 20px;

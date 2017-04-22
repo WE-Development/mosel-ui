@@ -10,7 +10,7 @@ export class HttpUtils {
               private snackBar: MdSnackBar) {
   }
 
-  static extractData(res: Response) {
+  static extractData(res: Response): any {
     let body = res.json();
     return body || {};
   }
