@@ -7,7 +7,10 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-nodes',
   templateUrl: './nodes.component.html',
-  styleUrls: ['./nodes.component.scss'],
+  styleUrls: [
+    './../navbar.scss',
+    './nodes.component.scss'
+  ],
   providers: [InfoService]
 })
 export class NodesComponent implements OnInit {

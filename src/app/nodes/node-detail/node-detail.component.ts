@@ -7,7 +7,10 @@ import {HttpUtils} from "../../http-utils";
 @Component({
   selector: 'app-node-detail',
   templateUrl: './node-detail.component.html',
-  styleUrls: ['./node-detail.component.scss'],
+  styleUrls: [
+    './../../navbar.scss',
+    './node-detail.component.scss'
+  ],
   providers: [NodeInfoService]
 })
 export class NodeDetailComponent implements OnInit {

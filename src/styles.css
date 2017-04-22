@@ -14,9 +14,15 @@ app-navbar {
   z-index: 2;
 }
 
-router-outlet + * {
+app-login {
   flex: 1 1 auto;
   display: flex;
+}
 
+app-nodes {
   z-index: 1;
+}
+
+app-node-detail {
+  z-index: 0;
 }

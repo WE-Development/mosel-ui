@@ -1,22 +1,11 @@
-.node-content {
-  flex: 1 1 auto;
-  display: block;
-
+nav {
   md-toolbar {
     ul {
-      display: inline;
-      list-style-type: none;
-      width: 100%;
-
       li {
         margin-right: 30px;
 
         h4 {
           margin-top: 30px;
-        }
-
-        .nav-button {
-          line-height: 64px;
         }
 
         .btn-update {
@@ -30,28 +19,20 @@
 
         }
       }
-
-      .l-left {
-        float: left;
-      }
-      .l-right {
-        float: right;
-      }
     }
   }
+}
 
-  .node-charts {
-    //height: 100%;
-    margin-top: 20px;
+.node-charts {
+  //height: 100%;
+  margin-top: 20px;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 
-    chart {
-      //flex-grow: 1;
-      flex-shrink: 1;
-    }
+  chart {
+    //flex-grow: 1;
+    flex-shrink: 1;
   }
-
 }

@@ -1,0 +1,30 @@
+nav {
+  .main-nav-logo {
+    line-height: 15px;
+    min-width: 220px;
+  }
+
+  .nav-button {
+    line-height: 64px;
+  }
+
+  a {
+    font-size: 20px;
+
+    md-icon {
+      font-size: 30px;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    width: 100%;
+
+    .l-left {
+      float: left;
+    }
+    .l-right {
+      float: right;
+    }
+  }
+}

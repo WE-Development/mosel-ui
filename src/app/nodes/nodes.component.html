@@ -1,17 +1,7 @@
-<md-sidenav-container>
-  <md-sidenav #sidenav>
-    <md-list>
-      <md-list-item *ngFor="let node of nodes">
-        <a md-button (click)="onClickNode(node)">{{node}}</a>
-      </md-list-item>
-    </md-list>
-  </md-sidenav>
+<nav>
+  <md-toolbar color="primary">
+    <a *ngFor="let node of nodes" (click)="onClickNode(node)" md-button class="nav-button">{{node}}</a>
+  </md-toolbar>
+</nav>
 
-  <button md-button color="primary" (click)="sidenav.open()">
-    <md-icon color="accent">navigate_next</md-icon>
-  </button>
-
-  <div class="content-wrapper">
-    <router-outlet></router-outlet>
-  </div>
-</md-sidenav-container>
+<router-outlet></router-outlet>

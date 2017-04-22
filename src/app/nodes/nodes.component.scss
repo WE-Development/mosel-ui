@@ -1,19 +1,1 @@
-md-sidenav-container {
-  flex: 1 1 auto;
 
-  button {
-    position: absolute;
-    height: 100%;
-
-    md-icon {
-      font-size: 120px;
-      margin-left: -100px;
-    }
-  }
-
-  .content-wrapper {
-    margin-left: 88px;
-    height: 100%;
-    overflow: scroll;
-  }
-}
