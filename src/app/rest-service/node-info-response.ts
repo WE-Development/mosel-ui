@@ -1,14 +1,15 @@
 import {MoselResponse} from "./mosel-response";
 
-export class NodeInfoResponse extends MoselResponse {
-  data: {
-    //time
+export interface NodeInfoData {
+  [key: string]: {
+    //diagram
     [key: string]: {
-      //diagram
-      [key: string]: {
-        //graph
-        [key: string]: any
-      }
+      //graph
+      [key: string]: any
     }
-  };
+  }
+}
+
+export interface NodeInfoResponse extends MoselResponse {
+  data: NodeInfoData
 }

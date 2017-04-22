@@ -19,11 +19,5 @@
 </nav>
 
 <div class="node-charts">
-  <chart [options]="options"></chart>
-  <chart [options]="options"></chart>
-  <chart [options]="options"></chart>
-  <chart [options]="options"></chart>
-  <chart [options]="options"></chart>
-  <chart [options]="options"></chart>
-  <chart [options]="options"></chart>
+  <chart *ngFor="let chart of charts" [options]="chart"></chart>
 </div>

@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Params} from "@angular/router";
 import {NodeInfoService} from "../../rest-service/node-info.service";
-import {NodeInfoResponse} from "../../rest-service/node-info-response";
+import {NodeInfoData, NodeInfoResponse} from "../../rest-service/node-info-response";
 import {HttpUtils} from "../../http-utils";
 
 @Component({
@@ -18,7 +18,7 @@ export class NodeDetailComponent implements OnInit {
   node: string;
   lastUpdate: Date;
 
-  options: any;
+  charts: any[] = [];
 
   constructor(private infoService: NodeInfoService,
               private httpUtils: HttpUtils,
@@ -31,7 +31,10 @@ export class NodeDetailComponent implements OnInit {
     });
 
     this.update();
-    this.testChart();
+  }
+
+  private extractNodeNameParams(params: Params) {
+    this.node = params['name']
   }
 
   update() {
@@ -43,20 +46,64 @@ export class NodeDetailComponent implements OnInit {
   }
 
   private onSuccess = (info: NodeInfoResponse) => {
-    //this.nodes = info.nodes;
     this.lastUpdate = info.time;
+    this.loadData(info.data);
   };
 
-  private testChart() {
-    this.options = {
-      title: {text: 'simple chart'},
-      series: [{
-        data: [29.9, 71.5, 106.4, 129.2],
-      }]
-    };
+  private loadData(data: NodeInfoData) {
+    console.log(data);
+
+    for (const time in data) {
+      const date: Date = new Date(+time * 1000);
+      const diagrams = data[time];
+
+      console.log(date);
+
+      for (const diaName in diagrams) {
+        const graphs = diagrams[diaName];
+        const chart = this.getChart(diaName);
+
+        for (const graphName in graphs) {
+          const value = graphs[graphName];
+          const series = this.getSeries(chart, graphName);
+          series.data.push([
+            date.getTime() / 1000,
+            +value
+          ]);
+        }
+      }
+    }
   }
 
-  private extractNodeNameParams(params: Params) {
-    this.node = params['name']
+  private getChart(name: string): any {
+    for (const chart of this.charts) {
+      if (chart.name == name) {
+        return chart;
+      }
+    }
+
+    const newChart = {
+      name: name,
+      title: {text: name},
+      series: []
+    };
+
+    this.charts.push(newChart);
+    return newChart;
+  }
+
+  private getSeries(chart: any, graphName: string): any {
+    for (const series of chart.series) {
+      if (series.name == graphName) {
+        return series;
+      }
+    }
+
+    const newSeries = {
+      name: graphName,
+      data: []
+    };
+    chart.series.push(newSeries);
+    return newSeries;
   }
 }
