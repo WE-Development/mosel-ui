@@ -12,4 +12,7 @@ export class NodesOverviewComponent implements OnInit {
   ngOnInit() {
   }
 
+  test() {
+    console.log(Date.now());
+  }
 }
