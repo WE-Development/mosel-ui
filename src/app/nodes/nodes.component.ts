@@ -20,7 +20,9 @@ export class NodesComponent implements OnInit {
               private router: Router) {
   }
 
-  nodes: string[];
+  nodes: string[] = ["self", "test", "test", "test", "test", "test", "test",
+    "test", "test", "test", "test", "test", "test", "test", "test", "test",
+    "test", "test", "test", "test", "test", "test", "test", "test", "test", "test"];
 
   ngOnInit() {
     this.infoService.info()
