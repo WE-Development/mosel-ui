@@ -1,0 +1,18 @@
+md-card {
+  margin: auto;
+
+  width: 500px;
+
+  md-card-content {
+    display: flex;
+
+    div {
+      flex-grow: 1;
+      flex-shrink: 1;
+
+      md-icon {
+        font-size: 100px;
+      }
+    }
+  }
+}

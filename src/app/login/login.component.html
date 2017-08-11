@@ -1,0 +1,23 @@
+<md-card>
+  <md-card-title>Login</md-card-title>
+  <md-card-content>
+    <div>
+      <md-input-container>
+        <input [(ngModel)]="creds.username" mdInput type="text" placeholder="User">
+      </md-input-container>
+      <br>
+      <md-input-container>
+        <input [(ngModel)]="creds.password" mdInput type="password" placeholder="password">
+      </md-input-container>
+    </div>
+
+    <div>
+      <md-icon color="accent">lock</md-icon>
+    </div>
+  </md-card-content>
+  <md-card-actions>
+    <a md-button (click)="onClickLogin()">Login</a>
+    <a md-button (click)="onClickBack()">Back</a>
+  </md-card-actions>
+</md-card>
+

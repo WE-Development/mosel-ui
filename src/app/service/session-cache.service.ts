@@ -1,0 +1,45 @@
+import {Injectable} from "@angular/core";
+import {LoginResponse} from "../rest-service/login-response";
+import {Headers, RequestOptionsArgs} from "@angular/http";
+import {environment} from "../../environments/environment";
+
+@Injectable()
+export class SessionCache {
+
+  private state: LoginResponse | Credentials;
+
+  constructor() {
+    this.state = {
+      username: "",
+      password: ""
+    }
+  }
+
+  save(newState: LoginResponse | Credentials) {
+    this.state = newState;
+  }
+
+  appendAuthHeader(headers: Headers) {
+    if (this.state instanceof LoginResponse) {
+      const token = this.state.key;
+      headers.append("Authorization", "Bearer " + token);
+    } else {
+      const creds = btoa(this.state.username + ":" + this.state.password);
+      headers.append("Authorization", "Basic " + creds);
+    }
+  }
+
+  newRequestOptions(): RequestOptionsArgs {
+    const headers: Headers = new Headers();
+    this.appendAuthHeader(headers);
+    return {
+      headers: headers,
+      withCredentials: environment.production // set this parameter in prod only
+    };
+  }
+}
+
+export class Credentials {
+  username: string;
+  password: string;
+}

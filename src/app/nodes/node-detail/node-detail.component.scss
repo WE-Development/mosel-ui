@@ -1,0 +1,38 @@
+nav {
+  md-toolbar {
+    ul {
+      li {
+        margin-right: 30px;
+
+        h4 {
+          margin-top: 30px;
+        }
+
+        .btn-update {
+          margin-top: 10px;
+
+          md-icon {
+            font-size: 50px;
+            margin-bottom: 25px;
+            margin-right: 25px;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+.node-charts {
+  //height: 100%;
+  margin-top: 20px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  chart {
+    //flex-grow: 1;
+    flex-shrink: 1;
+  }
+}

@@ -1,0 +1,7 @@
+<nav>
+  <md-toolbar color="primary">
+    <a *ngFor="let node of nodes" (click)="onClickNode(node)" md-button class="nav-button">{{node}}</a>
+  </md-toolbar>
+</nav>
+
+<router-outlet></router-outlet>
